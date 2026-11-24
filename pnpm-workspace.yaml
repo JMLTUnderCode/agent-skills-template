@@ -1,0 +1,13 @@
+minimumReleaseAge: 0
+minimumReleaseAgeExclude:
+    - "@biomejs/biome"
+    - "@biomejs/cli-*"
+    - "@clack/core"
+    - "@clack/prompts"
+    - degit
+    - fs-extra
+    - graceful-fs
+    - jsonfile
+    - picocolors
+    - sisteransi
+    - universalify
