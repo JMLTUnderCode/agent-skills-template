@@ -6,4 +6,4 @@ Plantilla base para iniciar proyectos con Agent Skills. Incluye `AGENTS.md` port
 
 Este README es un placeholder: reemplázalo por la documentación de tu proyecto.
 
-Para instalar skills o consultar el comportamiento completo del instalador, revisa [`agent-skills-installer/SKILLS_INSTALLER.md`](agent-skills-installer/SKILLS_INSTALLER.md).
+Para instalar skills o consultar el comportamiento completo del instalador, revisa [SKILLS_INSTALLER.md](https://github.com/JMLTUnderCode/agent-skills-template/blob/main/agent-skills-installer/SKILLS_INSTALLER.md).
