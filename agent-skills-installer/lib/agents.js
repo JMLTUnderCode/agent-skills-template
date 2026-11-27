@@ -2,6 +2,7 @@ const os = require('node:os');
 const path = require('node:path');
 
 const home = os.homedir();
+const PROJECT_ROOT = path.resolve(__dirname, '..', '..');
 
 const agents = [
     {
@@ -76,8 +77,8 @@ function getAgent(id) {
  */
 function resolveTarget(agent, scope) {
     // Selecciona la ruta configurada según el alcance solicitado.
-    const selectedPath = scope === 'global' ? agent.global : agent.local;
-    return path.isAbsolute(selectedPath) ? selectedPath : path.resolve(process.cwd(), selectedPath);
+    if (scope === 'global') return agent.global;
+    return path.resolve(PROJECT_ROOT, agent.local);
 }
 
 /**
@@ -116,4 +117,5 @@ module.exports = {
     resolveTarget,
     displayPath,
     targetsForScope,
+    PROJECT_ROOT,
 };

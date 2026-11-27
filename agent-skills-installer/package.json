@@ -1,9 +1,9 @@
 {
-    "name": "agent-skills-template",
+    "name": "agent-skills-installer",
     "version": "0.1.0",
     "private": true,
     "type": "commonjs",
-    "description": "Plantilla para instalar skills de agentes de código desde skills-hub",
+    "description": "Instalador de skills de agentes de código desde skills-hub",
     "scripts": {
         "setup": "node install.js",
         "check": "biome check .",

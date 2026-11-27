@@ -3,7 +3,14 @@ const assert = require('node:assert/strict');
 const os = require('node:os');
 const path = require('node:path');
 
-const { agents, getAgent, resolveTarget, displayPath, targetsForScope } = require('../lib/agents');
+const {
+    agents,
+    getAgent,
+    resolveTarget,
+    displayPath,
+    targetsForScope,
+    PROJECT_ROOT,
+} = require('../lib/agents');
 
 test('agents expone los 8 agentes soportados con rutas global y local', () => {
     // Verifica el contrato base usado por el instalador y la documentación.
@@ -23,13 +30,14 @@ test('getAgent retorna el agente correcto o undefined', () => {
     assert.equal(getAgent('unknown-agent'), undefined);
 });
 
-test('resolveTarget resuelve rutas globales y locales', () => {
-    // Valida que local sea absoluta respecto al cwd y global se conserve absoluta.
+test('resolveTarget resuelve rutas globales y locales desde PROJECT_ROOT', () => {
+    // Valida que local sea absoluta respecto a la raíz del proyecto y global se conserve absoluta.
     const agent = getAgent('claude');
     const localTarget = resolveTarget(agent, 'local');
     const globalTarget = resolveTarget(agent, 'global');
-    assert.equal(localTarget, path.resolve(process.cwd(), agent.local));
+    assert.equal(localTarget, path.resolve(PROJECT_ROOT, agent.local));
     assert.equal(globalTarget, agent.global);
+    assert.equal(PROJECT_ROOT, path.resolve(__dirname, '..', '..'));
 });
 
 test('displayPath usa tilde en global y prefijo relativo en local', () => {
